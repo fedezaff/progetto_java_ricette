@@ -49,4 +49,11 @@ public class Controller {
         return recipeService.getRecipeByOrigin(origine);
     }
 
+    @GetMapping("/make_it")
+    public List<String> getMakeIt(@RequestParam String ingredienti) {
+        // recupera il parametro e divido gli ingredienti in un arraylist
+        List<String> ingredientiList = List.of(ingredienti.split(","));
+        return ingredientiList;
+    }
+
 }
