@@ -29,6 +29,11 @@ public class Controller {
         return recipeService.getAllRecipe();
     }
 
+    @GetMapping("/origin")
+    public List<String> getAllOrigin() {
+        return recipeService.getAllOrigin();
+    }
+
     @GetMapping("/recipe_by_name")
     public List<Recipe> getRecipeByName(@RequestParam String nome) {
         return recipeService.getRecipeByName(nome);
