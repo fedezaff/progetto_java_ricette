@@ -34,7 +34,7 @@ public class RecipeService {
         return recipeRepository.findAll(example); // Restituisce tutte le ricette che corrispondono all'esempio
     }
     
-    public List<Recipe> getRecipeRandom() {
-        
+    public Recipe getRecipeRandom() {        
+        return recipeRepository.findRandomRecipe();
     }
 }
