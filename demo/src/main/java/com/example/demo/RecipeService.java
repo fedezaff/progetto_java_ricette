@@ -37,4 +37,8 @@ public class RecipeService {
     public Recipe getRecipeRandom() {        
         return recipeRepository.findRandomRecipe();
     }
+
+    public List<Recipe> getRecipeByOrigin(String origine) {        
+        return recipeRepository.findByOrigin(origine);
+    }
 }

@@ -39,4 +39,9 @@ public class Controller {
         return recipeService.getRecipeRandom();
     }
 
+    @GetMapping("/recipe_by_origin")
+    public List<Recipe> getRecipeByOrigin(@RequestParam String origine) {
+        return recipeService.getRecipeByOrigin(origine);
+    }
+
 }
