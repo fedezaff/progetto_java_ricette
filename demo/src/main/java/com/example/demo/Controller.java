@@ -53,7 +53,12 @@ public class Controller {
     public List<String> getMakeIt(@RequestParam String ingredienti) {
         // recupera il parametro e divido gli ingredienti in un arraylist
         List<String> ingredientiList = List.of(ingredienti.split(","));
+        List<String> IDingredientiList = new ArrayList<>();
+        
+        for (String ingrediente : ingredientiList) {
+            IDingredientiList.add(ingredientService.getIngredientId(ingrediente));
+        }
+
         return ingredientiList;
     }
-
 }

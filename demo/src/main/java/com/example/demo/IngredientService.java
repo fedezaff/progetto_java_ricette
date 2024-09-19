@@ -17,6 +17,10 @@ public class IngredientService {
         return ingredientRepository.findAll();
     }
 
+    public String getIngredientId(String ingrediente) {
+        return ingredientRepository.getIngredientId(ingrediente);
+    }
+
     /* public String getCategories() {
         return ingredientRepository.getCategory();
     }  */

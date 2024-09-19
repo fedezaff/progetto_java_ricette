@@ -10,10 +10,10 @@ import jakarta.persistence.Table;
 public class Ingredient {
 
     @Id
-    @Column(name = "Entity ID")  
+    @Column(name = "Entity_ID")  
     private Long entityId;
 
-    @Column(name = "Aliased Ingredient Name")
+    @Column(name = "Aliased_Ingredient_Name")
     private String aliasedIngredientName;
 
     @Column(name = "Ingredient Synonyms")
