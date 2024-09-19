@@ -24,9 +24,9 @@ public class RecipeIngredientsAliases {
 
     // Getters e Setters
 
-    public RecipeIngredientAlias() {}
+    public void RecipeIngredientAlias() {}
 
-    public RecipeIngredientAlias(Long recipeId, String originalIngredientName, String aliasedIngredientName, Long entityId) {
+    public void RecipeIngredientAlias(Long recipeId, String originalIngredientName, String aliasedIngredientName, Long entityId) {
         this.recipeId = recipeId;
         this.originalIngredientName = originalIngredientName;
         this.aliasedIngredientName = aliasedIngredientName;
