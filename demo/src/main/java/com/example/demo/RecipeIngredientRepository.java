@@ -18,4 +18,7 @@ public interface RecipeIngredientRepository extends JpaRepository<RecipeIngredie
     @Query(value = "SELECT Entity_ID FROM recipe_ingredients_aliases WHERE Recipe_ID = :ricettaPossibile", nativeQuery = true)
     List<String> getIngredientID(@Param("ricettaPossibile") String ricettaPossibile);
 
+    @Query(value = "SELECT Original_Ingredient_Name FROM recipe_ingredients_aliases WHERE Recipe_ID = :recipeID", nativeQuery = true)
+    List<String> getIngredient(@Param("recipeID") String recipeID);
+
 }

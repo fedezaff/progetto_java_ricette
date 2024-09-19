@@ -20,4 +20,8 @@ public class RecipeIngredientService {
     public List<String> getIngredientID(String ricettaPossibile) {
         return RecipeIngredientRepository.getIngredientID(ricettaPossibile);
     }    
+
+    public List<String> getIngredient(String recipeID) {
+        return RecipeIngredientRepository.getIngredient(recipeID);
+    }    
 }

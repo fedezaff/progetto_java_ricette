@@ -13,7 +13,7 @@ public class RecipeIngredient {
     @Column(name = "Recipe_ID")
     private Long recipeId;
 
-    @Column(name = "Original Ingredient Name")
+    @Column(name = "Original_Ingredient_Name")
     private String originalIngredientName;
 
     @Column(name = "Aliased Ingredient Name")
