@@ -7,10 +7,10 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "recipe_ingredient_aliases")
-public class RecipeIngredientsAliases {
+public class RecipeIngredient {
 
     @Id
-    @Column(name = "Recipe ID")
+    @Column(name = "Recipe_ID")
     private Long recipeId;
 
     @Column(name = "Original Ingredient Name")
@@ -19,14 +19,14 @@ public class RecipeIngredientsAliases {
     @Column(name = "Aliased Ingredient Name")
     private String aliasedIngredientName;
 
-    @Column(name = "Entity ID")
+    @Column(name = "Entity_ID")
     private Long entityId;
 
     // Getters e Setters
 
-    public void RecipeIngredientAlias() {}
+    public RecipeIngredient() {}
 
-    public void RecipeIngredientAlias(Long recipeId, String originalIngredientName, String aliasedIngredientName, Long entityId) {
+    public RecipeIngredient(Long recipeId, String originalIngredientName, String aliasedIngredientName, Long entityId) {
         this.recipeId = recipeId;
         this.originalIngredientName = originalIngredientName;
         this.aliasedIngredientName = aliasedIngredientName;
