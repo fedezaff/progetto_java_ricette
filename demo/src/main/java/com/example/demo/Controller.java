@@ -56,31 +56,35 @@ public class Controller {
 
     @GetMapping("/make_it")
     public List<Recipe> getMakeIt(@RequestParam String ingredienti) {
-        // recupera il parametro e divido gli ingredienti in un arraylist
+        // Suddividi gli ingredienti passati in una lista
         List<String> ingredientiList = List.of(ingredienti.split(","));
         List<String> IDingredientiList = new ArrayList<>();
         List<Recipe> ricette = new ArrayList<>();
-        
-        // per ogni ingrediente nella lista di ingredienti, recupera l'id e lo aggiunge alla lista di IDingredientiList
+    
+        // Recupera gli ID di ciascun ingrediente e li aggiunge alla lista
         for (String ingrediente : ingredientiList) {
             IDingredientiList.add(ingredientService.getIngredientId(ingrediente));
         }
-
-        // Ricette possibili
+    
+        // Ricette possibili basate sugli ingredienti
         List<String> ricettePossibili = new ArrayList<>();
         for (String ingredienteID : IDingredientiList) {
-            ricettePossibili.addAll(recipeIngredientService.getRecipeId(ingredienteID)); // Usare il servizio iniettato
+            ricettePossibili.addAll(recipeIngredientService.getRecipeId(ingredienteID));
         }
-
-        for (String ricettaPossibile : ricettePossibili) {
-            List<String> ingredientiRicetta = new ArrayList<>();
-            ingredientiRicetta.addAll(recipeIngredientService.gerIngredientID(ricettaPossibile));
-            // Controlla se gli ingredienti della ricetta sono contenuti nella lista di ingredienti
+    
+        // Per ogni ricetta possibile, verifica se gli ingredienti richiesti sono contenuti nella lista degli ingredienti
+        for (String ricettaID : ricettePossibili) {
+            // Recupera gli ingredienti della ricetta
+            List<String> ingredientiRicetta = recipeIngredientService.getIngredientID(ricettaID);
+    
+            // Controlla se la lista di ingredienti fornita contiene tutti gli ingredienti della ricetta
             if (IDingredientiList.containsAll(ingredientiRicetta)) {
-                ricette.add(recipeService.getRecipeByID(ricettaPossibile)); // Restituisce la ricetta
+                // Aggiungi la ricetta alla lista delle ricette da restituire
+                ricette.add(recipeService.getRecipeByID(ricettaID));
             }
         }
-
-        return ricette; // Restituisce le ricette possibili anziché solo gli ID degli ingredienti
+    
+        return ricette; // Restituisce le ricette che possono essere fatte con gli ingredienti forniti
     }
+    
 }

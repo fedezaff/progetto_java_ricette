@@ -17,7 +17,7 @@ public class RecipeIngredientService {
         return RecipeIngredientRepository.getRecipeId(ingredienteID);
     }    
 
-    public List<String> gerIngredientID(String ricettaPossibile) {
-        return RecipeIngredientRepository.gerIngredientID(ricettaPossibile);
+    public List<String> getIngredientID(String ricettaPossibile) {
+        return RecipeIngredientRepository.getIngredientID(ricettaPossibile);
     }    
 }
