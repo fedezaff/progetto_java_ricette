@@ -73,8 +73,9 @@ public class Controller {
     
         // Ricette possibili basate sugli ingredienti
         List<String> ricettePossibili = new ArrayList<>();
+        int maxIngredienti = IDingredientiList.size();
         for (String ingredienteID : IDingredientiList) {
-            ricettePossibili.addAll(recipeIngredientService.getRecipeId(ingredienteID));
+            ricettePossibili.addAll(recipeIngredientService.getRecipeId(ingredienteID, maxIngredienti));
         }
     
         // Per ogni ricetta possibile, verifica se gli ingredienti richiesti sono contenuti nella lista degli ingredienti

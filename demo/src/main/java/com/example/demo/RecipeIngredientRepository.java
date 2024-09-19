@@ -12,8 +12,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface RecipeIngredientRepository extends JpaRepository<RecipeIngredient, Long> {
 
-    @Query(value = "SELECT Recipe_ID FROM recipe_ingredients_aliases WHERE Entity_ID = :ingredienteID", nativeQuery = true)
-    List<String> getRecipeId(@Param("ingredienteID") String ingredienteID);
+    @Query(value = "SELECT ri.Recipe_ID FROM recipe_ingredients_aliases ri INNER JOIN (SELECT Recipe_ID FROM recipe_ingredients_aliases GROUP BY Recipe_ID HAVING COUNT(Entity_ID) <= :maxIngredienti) filtered_recipes ON ri.Recipe_ID = filtered_recipes.Recipe_ID WHERE ri.Entity_ID = :ingredienteID", nativeQuery = true)
+    List<String> getRecipeId(@Param("ingredienteID") String ingredienteID, @Param("maxIngredienti") int maxIngredienti );
     
     @Query(value = "SELECT Entity_ID FROM recipe_ingredients_aliases WHERE Recipe_ID = :ricettaPossibile", nativeQuery = true)
     List<String> getIngredientID(@Param("ricettaPossibile") String ricettaPossibile);

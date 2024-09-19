@@ -13,8 +13,8 @@ public class RecipeIngredientService {
     @Autowired
     private RecipeIngredientRepository RecipeIngredientRepository;
 
-    public List<String> getRecipeId(String ingredienteID) {
-        return RecipeIngredientRepository.getRecipeId(ingredienteID);
+    public List<String> getRecipeId(String ingredienteID, int maxIngredienti) {
+        return RecipeIngredientRepository.getRecipeId(ingredienteID, maxIngredienti);
     }    
 
     public List<String> getIngredientID(String ricettaPossibile) {
