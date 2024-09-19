@@ -13,9 +13,11 @@ public class RecipeIngredientService {
     @Autowired
     private RecipeIngredientRepository RecipeIngredientRepository;
 
-
-
     public List<String> getRecipeId(String ingredienteID) {
         return RecipeIngredientRepository.getRecipeId(ingredienteID);
+    }    
+
+    public List<String> gerIngredientID(String ricettaPossibile) {
+        return RecipeIngredientRepository.gerIngredientID(ricettaPossibile);
     }    
 }

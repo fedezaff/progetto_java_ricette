@@ -45,4 +45,8 @@ public class RecipeService {
     public List<Recipe> getRecipeByOrigin(String origine) {        
         return recipeRepository.findByOrigin(origine);
     }
+
+    public Recipe getRecipeByID(String id) {        
+        return recipeRepository.findByID(id);
+    }
 }

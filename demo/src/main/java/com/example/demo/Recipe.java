@@ -10,7 +10,7 @@ import jakarta.persistence.Table;
 public class Recipe {
 
     @Id
-    @Column(name = "Recipe ID")  
+    @Column(name = "Recipe_ID")  
     private Long recipeId;
 
     @Column(name = "Title")

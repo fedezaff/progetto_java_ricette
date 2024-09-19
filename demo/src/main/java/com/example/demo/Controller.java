@@ -55,10 +55,11 @@ public class Controller {
     }
 
     @GetMapping("/make_it")
-    public List<String> getMakeIt(@RequestParam String ingredienti) {
+    public List<Recipe> getMakeIt(@RequestParam String ingredienti) {
         // recupera il parametro e divido gli ingredienti in un arraylist
         List<String> ingredientiList = List.of(ingredienti.split(","));
         List<String> IDingredientiList = new ArrayList<>();
+        List<Recipe> ricette = new ArrayList<>();
         
         // per ogni ingrediente nella lista di ingredienti, recupera l'id e lo aggiunge alla lista di IDingredientiList
         for (String ingrediente : ingredientiList) {
@@ -71,11 +72,15 @@ public class Controller {
             ricettePossibili.addAll(recipeIngredientService.getRecipeId(ingredienteID)); // Usare il servizio iniettato
         }
 
-        for (String ricettePossibile : ricettePossibili) {
+        for (String ricettaPossibile : ricettePossibili) {
             List<String> ingredientiRicetta = new ArrayList<>();
-            ingredientiRicetta.add(recipeIngredientService.gerIngredientID(ricettePossibile)); // Usare il servizio iniettato
+            ingredientiRicetta.addAll(recipeIngredientService.gerIngredientID(ricettaPossibile));
+            // Controlla se gli ingredienti della ricetta sono contenuti nella lista di ingredienti
+            if (IDingredientiList.containsAll(ingredientiRicetta)) {
+                ricette.add(recipeService.getRecipeByID(ricettaPossibile)); // Restituisce la ricetta
+            }
         }
 
-        return ricettePossibili; // Restituisce le ricette possibili anziché solo gli ID degli ingredienti
+        return ricette; // Restituisce le ricette possibili anziché solo gli ID degli ingredienti
     }
 }

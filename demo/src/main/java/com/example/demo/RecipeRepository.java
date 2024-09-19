@@ -22,4 +22,7 @@ public interface RecipeRepository extends JpaRepository<Recipe, Long>, QueryByEx
     
     @Query(value = "SELECT Cuisine FROM recipe_details GROUP BY Cuisine", nativeQuery = true)
     List<String> findOrigin();
+
+    @Query(value = "SELECT * FROM recipe_details WHERE Recipe_ID = :id LIMIT 1", nativeQuery = true)
+    Recipe findByID(@Param("id") String id);
 }
