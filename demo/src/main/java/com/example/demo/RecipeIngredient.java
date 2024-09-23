@@ -16,7 +16,7 @@ public class RecipeIngredient {
     @Column(name = "Original_Ingredient_Name")
     private String originalIngredientName;
 
-    @Column(name = "Aliased Ingredient Name")
+    @Column(name = "Aliased_Ingredient_Name")
     private String aliasedIngredientName;
 
     @Column(name = "Entity_ID")
