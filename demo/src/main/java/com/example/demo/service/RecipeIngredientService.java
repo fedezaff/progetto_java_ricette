@@ -1,7 +1,8 @@
-package com.example.demo;
+package com.example.demo.service;
 
-import com.example.demo.RecipeIngredient;
-import com.example.demo.RecipeIngredientRepository;
+import com.example.demo.model.RecipeIngredient;
+import com.example.demo.repository.RecipeIngredientRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

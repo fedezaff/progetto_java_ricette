@@ -1,7 +1,11 @@
-package com.example.demo;
+package com.example.demo.controller;
 
-import com.example.demo.Ingredient;
-import com.example.demo.IngredientService;
+import com.example.demo.model.Ingredient;
+import com.example.demo.model.Recipe;
+import com.example.demo.service.IngredientService;
+import com.example.demo.service.RecipeIngredientService;
+import com.example.demo.service.RecipeService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -29,7 +33,7 @@ public class Controller {
         return ingredientService.getAllIngredients();
     }
 
-    @GetMapping("/recipe")
+    @GetMapping("/recipes")
     public List<Recipe> getAllRecipe() {
         return recipeService.getAllRecipe();
     }
