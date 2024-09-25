@@ -10,26 +10,26 @@ import jakarta.persistence.Table;
 public class Recipe {
 
     @Id
-    @Column(name = "Recipe_ID")  
+    @Column(name = "recipe_id")  
     private Long recipeId;
 
-    @Column(name = "Title")
+    @Column(name = "title")
     private String title;
 
-    @Column(name = "Source")
-    private String source;
+    @Column(name = "source")
+    private String site;
 
-    @Column(name = "Cuisine")
-    private String cuisine;
+    @Column(name = "recipe_origins_id")
+    private Long recipeOriginsId;
 
     // Getters Setters
     public Recipe() {}
 
-        public Recipe(Long recipeId, String title, String source, String cuisine) {
+        public Recipe(Long recipeId, String title, String site, Long recipeOriginsId) {
         this.recipeId = recipeId;
         this.title = title;
-        this.source = source;
-        this.cuisine = cuisine;
+        this.site = site;
+        this.recipeOriginsId = recipeOriginsId;
     } 
 
     public Long getRecipeId() {
@@ -48,19 +48,19 @@ public class Recipe {
         this.title = title;
     }
 
-    public String getSource() {
-        return source;
+    public String getSite() {
+        return site;
     }
 
-    public void setSource(String source) {
-        this.source = source;
+    public void setSite(String site) {
+        this.site = site;
     }
 
-    public String getCuisine() {
-        return cuisine;
+    public Long getRecipeOriginsId() {
+        return recipeOriginsId;
     }
 
-    public void setCuisine(String Cuisine) {
-        this.cuisine = cuisine;
+    public void getRecipeOriginsId(Long recipeOriginsId) {
+        this.recipeOriginsId = recipeOriginsId;
     }
 }

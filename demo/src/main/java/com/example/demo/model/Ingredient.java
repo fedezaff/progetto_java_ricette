@@ -10,42 +10,43 @@ import jakarta.persistence.Table;
 public class Ingredient {
 
     @Id
-    @Column(name = "Entity_ID")  
-    private Long entityId;
+    @Column(name = "ingredient_id")  
+    private Long ingredientID;
 
-    @Column(name = "Aliased_Ingredient_Name")
-    private String aliasedIngredientName;
+    @Column(name = "aliased_name")
+    private String IngredientName;
 
-    @Column(name = "Ingredient Synonyms")
+    @Column(name = "ingredient_synonyms")
     private String ingredientSynonyms;
 
-    @Column(name = "Category")
-    private String category;
+    @Column(name = "category_id")
+    private Long categoryId;
+
 
     // Getters Setters
     public Ingredient() {}
 
-        public Ingredient(Long entityId, String aliasedIngredientName, String ingredientSynonyms, String category) {
-        this.entityId = entityId;
-        this.aliasedIngredientName = aliasedIngredientName;
+        public Ingredient(Long ingredientID, String IngredientName, String ingredientSynonyms, Long categoryId) {
+        this.ingredientID = ingredientID;
+        this.IngredientName = IngredientName;
         this.ingredientSynonyms = ingredientSynonyms;
-        this.category = category;
+        this.categoryId = categoryId;
     } 
 
-    public Long getEntityId() {
-        return entityId;
+    public Long getIngredientID() {
+        return ingredientID;
     }
 
-    public void setEntityId(Long entityId) {
-        this.entityId = entityId;
+    public void setIngredientID(Long ingredientID) {
+        this.ingredientID = ingredientID;
     }
 
-    public String getAliasedIngredientName() {
-        return aliasedIngredientName;
+    public String getIngredientName() {
+        return IngredientName;
     }
 
-    public void setAliasedIngredientName(String aliasedIngredientName) {
-        this.aliasedIngredientName = aliasedIngredientName;
+    public void setIngredientName(String IngredientName) {
+        this.IngredientName = IngredientName;
     }
 
     public String getIngredientSynonyms() {
@@ -56,11 +57,11 @@ public class Ingredient {
         this.ingredientSynonyms = ingredientSynonyms;
     }
 
-    public String getCategory() {
-        return category;
+    public Long getCategoryId() {
+        return categoryId;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
+    public void setCategoryId(Long categoryId) {
+        this.categoryId = categoryId;
     }
 }
