@@ -11,7 +11,7 @@ import com.example.demo.model.Ingredient;
 @Repository
 public interface IngredientRepository extends JpaRepository<Ingredient, Long> {
 
-    @Query(value = "SELECT Entity_ID FROM ingredients WHERE Aliased_Ingredient_Name = :ingrediente", nativeQuery = true)
+    @Query(value = "SELECT ingredient_id FROM ingredients WHERE aliased_name = :ingrediente", nativeQuery = true)
     String getIngredientId(@Param("ingrediente") String ingrediente);
 
 }
