@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import com.example.demo.model.Recipe;
 import com.example.demo.model.RecipeOrigins;
 
 @Repository
@@ -15,5 +16,8 @@ public interface RecipeOriginsRepository extends JpaRepository<RecipeOrigins, Lo
 
     @Query(value = "SELECT * FROM recipe_origins", nativeQuery = true)
     List<RecipeOrigins> findOrigin();
+
+    @Query(value = "SELECT recipe_origins_id FROM recipe_origins WHERE recipe_origins = :name LIMIT 1", nativeQuery = true)
+    String findById(@Param("name") String name);
 
 }

@@ -17,4 +17,8 @@ public class RecipeOriginsService {
     public List<RecipeOrigins> getAllOrigin() {
         return RecipeOriginsRepository.findOrigin();
     }
+
+    public String getOriginId(String name) {
+        return RecipeOriginsRepository.findById(name);
+    }
 }

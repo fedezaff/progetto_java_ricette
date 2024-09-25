@@ -54,7 +54,8 @@ public class RecipeController {
 
     @GetMapping("/recipe-origins")
     public List<Recipe> getRecipeByOrigin(@RequestParam String recipeOrigins) {
-        return recipeService.getRecipeByOrigin(recipeOrigins);
+        String recipeOriginsId = RecipeOriginsService.getOriginId(recipeOrigins);
+        return recipeService.getRecipeByOrigin(recipeOriginsId);
     }
 
     @GetMapping("/recipeIngredients/{recipeID}")
