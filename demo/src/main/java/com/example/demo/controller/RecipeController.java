@@ -62,12 +62,7 @@ public class RecipeController {
         String recipeOriginsId = RecipeOriginsService.getOriginId(recipeOrigins);
         return recipeService.getRecipeByOrigin(recipeOriginsId);
     }
-
-    @GetMapping("/recipeIngredients/{recipeID}")
-    public List<String> getRecipeIngredients(@PathVariable String recipeID) {
-        return recipeIngredientService.getIngredient(recipeID);
-    }
-
+    
     @GetMapping("/make-it")
     public List<Recipe> getMakeIt(@RequestParam String ingredients) {
         // Suddividi gli ingredienti passati in una lista
