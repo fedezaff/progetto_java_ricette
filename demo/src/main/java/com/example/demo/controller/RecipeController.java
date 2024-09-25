@@ -47,6 +47,11 @@ public class RecipeController {
         return recipeService.getRecipeByName(name);
     }
 
+    @GetMapping("/recipes-name/{id}")
+    public Recipe getRecipeByID(@PathVariable String id) {
+        return recipeService.getRecipeByID(id);
+    }
+
     @GetMapping("/random")
     public Recipe getRecipeRandom() {
         return recipeService.getRecipeRandom();
