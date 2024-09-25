@@ -23,10 +23,6 @@ public class RecipeService {
         return recipeRepository.findAll();
     }
 
-    public List<String> getAllOrigin() {
-        return recipeRepository.findOrigin();
-    }
-
     public List<Recipe> getRecipeByName(String nome) {
         // Crea un'istanza "esempio" di Recipe con il nome da cercare
         Recipe recipeExample = new Recipe();

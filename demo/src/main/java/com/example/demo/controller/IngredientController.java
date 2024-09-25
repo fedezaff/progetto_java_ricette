@@ -25,6 +25,7 @@ public class IngredientController {
     public String getIngredientId(@RequestParam String ingrediente) {
         return ingredientService.getIngredientId(ingrediente);
     }
+    
 }
 
     

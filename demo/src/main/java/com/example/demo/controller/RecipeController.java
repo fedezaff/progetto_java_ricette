@@ -1,12 +1,16 @@
 package com.example.demo.controller;
 
 import com.example.demo.model.Recipe;
+import com.example.demo.model.RecipeOrigins;
 import com.example.demo.service.IngredientService;
 import com.example.demo.service.RecipeIngredientService;
+import com.example.demo.service.RecipeOriginsService;
 import com.example.demo.service.RecipeService;
 
+import org.hibernate.type.descriptor.jdbc.TinyIntJdbcType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -25,19 +29,22 @@ public class RecipeController {
     @Autowired
     private IngredientService ingredientService; // Serve per ottenere gli ID degli ingredienti
 
+    @Autowired
+    private RecipeOriginsService RecipeOriginsService;
+
     @GetMapping("/recipes")
     public List<Recipe> getAllRecipe() {
         return recipeService.getAllRecipe();
     }
 
-    @GetMapping("/origin")
-    public List<String> getAllOrigin() {
-        return recipeService.getAllOrigin();
+    @GetMapping("/recipe-origins-list")
+    public List<RecipeOrigins> getAllOrigin() {
+        return RecipeOriginsService.getAllOrigin();
     }
 
-    @GetMapping("/recipe_by_name")
-    public List<Recipe> getRecipeByName(@RequestParam String nome) {
-        return recipeService.getRecipeByName(nome);
+    @GetMapping("/recipes-name")
+    public List<Recipe> getRecipeByName(@RequestParam String name) {
+        return recipeService.getRecipeByName(name);
     }
 
     @GetMapping("/random")
@@ -45,20 +52,20 @@ public class RecipeController {
         return recipeService.getRecipeRandom();
     }
 
-    @GetMapping("/recipe_by_origin")
-    public List<Recipe> getRecipeByOrigin(@RequestParam String origine) {
-        return recipeService.getRecipeByOrigin(origine);
+    @GetMapping("/recipe-origins")
+    public List<Recipe> getRecipeByOrigin(@RequestParam String recipeOrigins) {
+        return recipeService.getRecipeByOrigin(recipeOrigins);
     }
 
-    @GetMapping("/recipe_ingredients")
-    public List<String> getRecipeIngredients(@RequestParam String recipeID) {
+    @GetMapping("/recipeIngredients/{recipeID}")
+    public List<String> getRecipeIngredients(@PathVariable String recipeID) {
         return recipeIngredientService.getIngredient(recipeID);
     }
 
-    @GetMapping("/make_it")
-    public List<Recipe> getMakeIt(@RequestParam String ingredienti) {
+    @GetMapping("/make-it")
+    public List<Recipe> getMakeIt(@RequestParam String ingredients) {
         // Suddividi gli ingredienti passati in una lista
-        List<String> ingredientiList = List.of(ingredienti.split(","));
+        List<String> ingredientiList = List.of(ingredients.split(","));
         List<String> IDingredientiList = new ArrayList<>();
         List<Recipe> ricette = new ArrayList<>();
     
