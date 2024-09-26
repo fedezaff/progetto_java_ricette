@@ -22,6 +22,10 @@ public class IngredientService {
         return ingredientRepository.getIngredientId(ingrediente);
     }
 
+    public Ingredient getIngredientById(String id) {
+        return ingredientRepository.getIngredientById(id);
+    }
+
     /* public String getCategories() {
         return ingredientRepository.getCategory();
     }  */
