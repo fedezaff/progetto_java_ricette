@@ -36,9 +36,9 @@ public class Recipe {
         return recipeId;
     }
 
-    public void setRecipeId(Long RecipeId) {
-        this.recipeId = recipeId;
-    }
+    // public void setRecipeId(Long RecipeId) {
+    //     this.recipeId = recipeId;
+    // }
 
     public String getTitle() {
         return title;

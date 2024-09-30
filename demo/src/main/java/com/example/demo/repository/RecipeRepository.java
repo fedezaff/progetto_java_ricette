@@ -9,11 +9,10 @@ import org.springframework.stereotype.Repository;
 import com.example.demo.model.Recipe;
 
 import org.springframework.data.repository.query.Param;
-import org.springframework.data.repository.query.QueryByExampleExecutor;
 
 
 @Repository
-public interface RecipeRepository extends JpaRepository<Recipe, Long>, QueryByExampleExecutor<Recipe>{
+public interface RecipeRepository extends JpaRepository<Recipe, Long>{
 
     @Query(value = "SELECT * FROM recipe_details ORDER BY RAND() LIMIT 1", nativeQuery = true)
     Recipe findRandomRecipe();

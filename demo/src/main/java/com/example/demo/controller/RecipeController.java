@@ -7,7 +7,6 @@ import com.example.demo.service.RecipeIngredientService;
 import com.example.demo.service.RecipeOriginsService;
 import com.example.demo.service.RecipeService;
 
-import org.hibernate.type.descriptor.jdbc.TinyIntJdbcType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

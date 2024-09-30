@@ -4,10 +4,7 @@ import com.example.demo.model.Ingredient;
 import com.example.demo.model.IngredientList;
 import com.example.demo.service.IngredientService;
 import com.example.demo.service.RecipeIngredientService;
-import com.example.demo.service.RecipeOriginsService;
-import com.example.demo.service.RecipeService;
 
-import jakarta.persistence.criteria.CriteriaBuilder.In;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,16 +19,11 @@ import java.util.List;
 public class IngredientController {
 
     @Autowired
-    private RecipeService recipeService;
-
-    @Autowired
     private RecipeIngredientService recipeIngredientService;
 
     @Autowired
     private IngredientService ingredientService; // Serve per ottenere gli ID degli ingredienti
 
-    @Autowired
-    private RecipeOriginsService RecipeOriginsService;
 
     @GetMapping("/ingredients")
     public List<Ingredient> getAllIngredients() {
