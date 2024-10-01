@@ -22,7 +22,6 @@ public class SecurityConfig {
             .csrf(csrf -> csrf.disable())  // Nuovo modo di disabilitare il CSRF
             .authorizeHttpRequests(auth -> {
                 auth.requestMatchers("/auth/**").permitAll();  // Permetti l'accesso libero alle API di autenticazione
-                auth.requestMatchers("/getAll").permitAll();  // Permetti l'accesso libero a /farmacie/getAll
                 auth.anyRequest().authenticated();  // Tutte le altre richieste richiedono autenticazione
             })
             .addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class)  // Aggiungi il filtro JWT

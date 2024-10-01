@@ -46,4 +46,12 @@ public class RecipeService {
     public Recipe getRecipeByID(String id) {        
         return recipeRepository.findByID(id);
     }
+
+    public void addRecipe(String name, String site, int recipeOrigins) {
+        recipeRepository.addRecipe(name, site, recipeOrigins);
+    }
+
+    public void deleteRecipe(int id) {
+        recipeRepository.deleteRecipe(id);
+    }
 }
