@@ -63,4 +63,8 @@ public class Recipe {
     public void getRecipeOriginsId(Long recipeOriginsId) {
         this.recipeOriginsId = recipeOriginsId;
     }
+
+    public void setRecipeId(Long recipeId) {
+        this.recipeId = recipeId;
+    }
 }

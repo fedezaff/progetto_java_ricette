@@ -3,6 +3,7 @@ package com.example.demo.service;
 import com.example.demo.model.Recipe;
 import com.example.demo.repository.RecipeRepository;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
@@ -47,8 +48,14 @@ public class RecipeService {
         return recipeRepository.findByID(id);
     }
 
-    public void addRecipe(String name, String site, int recipeOrigins) {
-        recipeRepository.addRecipe(name, site, recipeOrigins);
+    // public void addRecipe(int id, String name, String site, int recipeOrigins) {
+    //     id = 0;
+    //     recipeRepository.addRecipe(id, name, site, recipeOrigins);
+    // }
+
+    public void addRecipe(Recipe recipe) {
+        recipe.setRecipeId(null); // Imposta l'ID a null per consentire l'inserimento automatico
+        recipeRepository.save(recipe);
     }
 
     public void deleteRecipe(int id) {

@@ -24,9 +24,6 @@ public interface RecipeRepository extends JpaRepository<Recipe, Long> {
     @Query(value = "SELECT * FROM recipe_details WHERE Recipe_ID = :id LIMIT 1", nativeQuery = true)
     Recipe findByID(@Param("id") String id);
 
-    @Query(value = "INSERT INTO recipe_details (title, source, recipe_origins_id) VALUES (:name, :site, :recipeOrigins)", nativeQuery = true)
-    Recipe addRecipe(@Param("name") String name, @Param("site") String site, @Param("recipeOrigins") int recipeOrigins);
-
     @Query(value = "DELETE FROM recipe_details WHERE recipe_id = :id", nativeQuery = true)
     void deleteRecipe(@Param("id") int id);
 
