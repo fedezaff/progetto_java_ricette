@@ -1,0 +1,50 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mariadb://db:3306/fooddbdump
+      SPRING_DATASOURCE_USERNAME: pinguino
+      SPRING_DATASOURCE_PASSWORD: casa
+    networks:
+      - my-network
+
+  db:
+    image: mariadb:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: fooddbdump
+      MYSQL_USER: pinguino
+      MYSQL_PASSWORD: casa
+    ports:
+      - "3308:3306"
+    volumes:
+      - mariadb_data:/var/lib/mysql
+      - ./db_init:/docker-entrypoint-initdb.d/
+    networks:
+      - my-network
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    ports:
+      - "8081:80"
+    #environment:
+    #  PMA_HOST: db
+    #  PMA_USER: root
+    #  PMA_PASSWORD: casa
+    networks:
+      - my-network
+
+networks:
+  my-network:
+    driver: bridge
+
+volumes:
+  mariadb_data:

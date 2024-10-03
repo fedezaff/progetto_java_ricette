@@ -63,7 +63,7 @@
 		<dependency>
 				<groupId>com.h2database</groupId>
 				<artifactId>h2</artifactId>
-				<scope>runtime</scope>
+				<scope>test</scope>
   </dependency>
       <!-- Spring Security -->
     <dependency>
@@ -95,6 +95,7 @@
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-oauth2-resource-server</artifactId>
     </dependency>
+	
 	</dependencies>
 
 	<build>
