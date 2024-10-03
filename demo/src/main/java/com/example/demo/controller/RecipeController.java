@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
@@ -106,10 +107,16 @@ public class RecipeController {
         return ricette;
     }
 
+    // @PostMapping("/add-recipe")
+    // @ResponseStatus(code = HttpStatus.OK)
+    // public String addRecipe(@RequestParam String name, @RequestParam String site, @RequestParam int recipeOrigins) {
+    //     recipeService.addRecipe(name, site, recipeOrigins);
+    //     return "Recipe added successfully";
+    // }
+
     @PostMapping("/add-recipe")
-    @ResponseStatus(code = HttpStatus.OK)
-    public String addRecipe(@RequestParam String name, @RequestParam String site, @RequestParam int recipeOrigins) {
-        recipeService.addRecipe(name, site, recipeOrigins);
+    public String addRecipe(@RequestBody Recipe recipe) {
+        recipeService.addRecipe(recipe);
         return "Recipe added successfully";
     }
 
