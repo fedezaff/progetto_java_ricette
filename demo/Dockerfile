@@ -1,4 +1,4 @@
-# Use a lightweight base image with OpenJDK 21 preinstalled
+# Lightweight base image with OpenJDK 21 preinstalled
 FROM eclipse-temurin:21-jdk-alpine
 
 # Imposta la directory di lavoro
